@@ -11,9 +11,6 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends BaseRepository<Category> {
 
-    // Поиск с помощью JPQL -> подключить ElasticSearch
-    // Если title пустой - показываем все значения
-    // lower - приводим все буквы к нижнему регистру
     @Query( "SELECT c FROM Category c WHERE " +
             "(:title is null or :title='' or lower(c.title) like lower(concat('%',:title,'%'))) " +
             "ORDER BY c.title ASC")
