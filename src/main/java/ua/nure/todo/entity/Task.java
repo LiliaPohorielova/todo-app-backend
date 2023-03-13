@@ -47,7 +47,7 @@ public class Task extends BaseEntity {
     @Column(name = "completed")
     public Integer getCompleted() {
         return completed;
-    } // 1 = true, 0 = false
+    }
 
 
     @Basic
