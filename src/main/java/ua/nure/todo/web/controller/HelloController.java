@@ -1,4 +1,4 @@
-package ua.nure.todo;
+package ua.nure.todo.web.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
