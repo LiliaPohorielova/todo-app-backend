@@ -3,11 +3,13 @@ package ua.nure.todo.web.dto.response.category;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import ua.nure.todo.entity.Category;
 import ua.nure.todo.web.dto.response.ResponseDto;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class CategoryResponseDto extends ResponseDto {
 
