@@ -3,11 +3,13 @@ package ua.nure.todo.web.dto.response.priority;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import ua.nure.todo.entity.Priority;
 import ua.nure.todo.web.dto.response.ResponseDto;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class PriorityResponseDto extends ResponseDto {
 
