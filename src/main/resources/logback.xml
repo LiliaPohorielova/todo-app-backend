@@ -9,7 +9,7 @@
     </appender>
 
     <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${HOME_LOG}/tech-radar-logger.log</file>
+        <file>${HOME_LOG}/todo-app-logger.log</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>
