@@ -1,0 +1,59 @@
+version: "3.8"
+services:
+#  db:
+#    image: oscarfonts/h2:1.4.199
+#    restart: always
+#    container_name: pohorielova_h2_26
+#    environment:
+#      H2_OPTIONS: -ifNotExists
+#    ports:
+#      - "1521:1521"
+#      - "81:81"
+#    networks:
+#      - backend
+#
+#  mvn:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-app
+#    container_name: pohorielova_web_26
+#    ports:
+#      - "8888:8080"
+#    depends_on:
+#      - db
+#    networks:
+#      - backend
+#
+#  angular-ui:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-angular
+#    container_name: pohorielova_angular_26
+#    command: sh -c "ng serve --proxy-config proxy.conf.json --host 0.0.0.0"
+#    ports:
+#      - "4200:4200"
+#    depends_on:
+#      - mvn
+#    networks:
+#      - backend
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.0
+    container_name: keycloak
+    environment:
+      KEYCLOAK_IMPORT: /opt/keycloak/data/import/keycloak-realm.json
+      KEYCLOAK_ADMIN: keycloak
+      KEYCLOAK_ADMIN_PASSWORD: keycloak
+      KEYCLOAK_LOGLEVEL: DEBUG
+      KC_HOSTNAME: localhost
+      KC_HTTP_PORT: 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./keycloak:/opt/keycloak/data/import
+    command: start-dev --import-realm --http-relative-path=auth
+    networks:
+      - backend
+
+networks:
+  backend:
